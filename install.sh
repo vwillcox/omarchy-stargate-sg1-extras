@@ -45,8 +45,20 @@ else
 fi
 
 install -m 755 "$HERE/hooks/stargate-sg1.sh" "$HOOKS/theme-set.d/stargate-sg1.sh"
+# A script with a "# version: N" line (the video wallpaper guard, shared with
+# another theme's extras) is never replaced by an older copy.
+script_version() {
+  [[ -f $1 ]] && sed -n '/^# version: [0-9][0-9]*$/{s/^# version: //p;q}' "$1"
+}
 for bin in "$HERE"/bin/*; do
-  install -m 755 "$bin" "$HOME/.local/bin/$(basename "$bin")"
+  dest="$HOME/.local/bin/$(basename "$bin")"
+  installed=$(script_version "$dest") || true
+  shipped=$(script_version "$bin") || true
+  if ((10#${installed:-0} > 10#${shipped:-0})); then
+    echo "Keeping the newer $dest (version $installed; this copy is version ${shipped:-0})." >&2
+    continue
+  fi
+  install -m 755 "$bin" "$dest"
 done
 cp -a "$HERE"/fonts/*.ttf "$HOME/.local/share/fonts/sgc/"
 fc-cache -f "$HOME/.local/share/fonts" >/dev/null

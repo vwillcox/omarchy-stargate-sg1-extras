@@ -9,6 +9,10 @@
 # monitors disconnect on sleep), which buries the video under a static PNG.
 # Each time it maps, wait for the shell to settle and, if the video ended up
 # underneath, restart it via "<toggle-command> restart" so it maps on top again.
+#
+# Shared by the lcars-tng and stargate-sg1 extras. Their installers never
+# replace an installed copy with a higher version, so bump it on every change.
+# version: 2
 
 set -uo pipefail
 
