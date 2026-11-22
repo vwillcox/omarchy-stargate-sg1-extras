@@ -26,6 +26,31 @@ ship code, so these live here and you install them yourself.
 - **Build tools** (`tools/`) for the gate video, the still, the bar and the
   sounds.
 
+## The bar in action
+
+Captured from the live bar at 3440×1440 and enlarged; the GIFs play in real
+time.
+
+The gate-status readout over one full 53 s loop of the wallpaper, from the
+first chevron to the wormhole shutting down:
+
+![Gate-status readout following the wallpaper](screenshots/gate-status.gif)
+
+| Miniature stargate in the left cap, same loop | Workspace chevrons engaging as the focus moves |
+|---|---|
+| ![Miniature stargate dialing](screenshots/mini-gate.gif) | ![Workspace chevrons](screenshots/workspaces.gif) |
+
+Readout states, top to bottom: encoding, encoding with five chevrons lit,
+chevron seven locked, wormhole established, closing the iris, iris closed.
+
+![Six gate-status states](screenshots/gate-states.png)
+
+The whole bar, left to right, with the wormhole established:
+
+![Left: mini gate, workspaces](screenshots/bar-left.png)
+![Centre: gate status and clock](screenshots/bar-centre.png)
+![Right: system panels](screenshots/bar-right.png)
+
 ## Install
 
 Install the theme first. The extras use its video and sounds:
